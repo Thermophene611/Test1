@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2b1f1a">
+  <title>사주 보기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>사주 보기</h1>
+    <p class="sub">생년월일시로 보는 나의 사주팔자</p>
+  </header>
+
+  <main>
+    <form id="form" class="card" autocomplete="off">
+      <label class="field">
+        <span>이름 <small>(선택)</small></span>
+        <input id="name" type="text" maxlength="20" placeholder="홍길동">
+      </label>
+
+      <div class="field">
+        <span>성별</span>
+        <div class="seg">
+          <label><input type="radio" name="gender" value="1" checked><b>남</b></label>
+          <label><input type="radio" name="gender" value="0"><b>여</b></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span>달력</span>
+        <div class="seg">
+          <label><input type="radio" name="cal" value="solar" checked><b>양력</b></label>
+          <label><input type="radio" name="cal" value="lunar"><b>음력</b></label>
+        </div>
+        <label class="check" id="leapWrap" hidden><input id="leap" type="checkbox"> 윤달</label>
+      </div>
+
+      <div class="field">
+        <span>생년월일</span>
+        <div class="row3">
+          <select id="year" aria-label="년"></select>
+          <select id="month" aria-label="월"></select>
+          <select id="day" aria-label="일"></select>
+        </div>
+      </div>
+
+      <div class="field">
+        <span>태어난 시간</span>
+        <input id="time" type="time" value="12:00">
+        <label class="check"><input id="noTime" type="checkbox"> 시간을 몰라요</label>
+      </div>
+
+      <label class="check small"><input id="adjust" type="checkbox" checked> 한국 표준시 보정 (−30분, 권장)</label>
+
+      <p id="error" class="error" hidden></p>
+      <button type="submit" class="go">사주 보기</button>
+    </form>
+
+    <section id="result" hidden></section>
+  </main>
+
+  <footer class="foot">
+    재미로 보는 사주입니다. 중요한 결정은 스스로 신중하게 내려주세요.
+  </footer>
+
+  <script src="vendor/lunar.js"></script>
+  <script src="saju-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

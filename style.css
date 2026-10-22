@@ -1,0 +1,147 @@
+:root {
+  --bg: #f6f1e9;
+  --card: #fffdf9;
+  --ink: #2b1f1a;
+  --muted: #7a6a5f;
+  --line: #e4d9cb;
+  --accent: #a8342a;
+  --wood: #3f8f4f;
+  --fire: #d2453a;
+  --earth: #b8862b;
+  --metal: #8c8c8c;
+  --water: #2f5d8a;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  line-height: 1.6;
+}
+
+main { max-width: 560px; margin: 0 auto; padding: 0 16px 24px; }
+
+.top { text-align: center; padding: 32px 16px 16px; }
+.top h1 { margin: 0; font-size: 28px; letter-spacing: 2px; }
+.sub { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 12px; font-size: 18px; }
+.card h3 { margin: 16px 0 6px; font-size: 15px; }
+.card p { margin: 6px 0; }
+
+.field { display: block; margin-bottom: 16px; }
+.field > span { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+.field small { color: var(--muted); font-weight: 400; }
+
+input[type=text], input[type=time], select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.row3 { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 8px; }
+
+.seg { display: flex; gap: 8px; }
+.seg label { flex: 1; }
+.seg input { position: absolute; opacity: 0; }
+.seg b {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+}
+.seg input:checked + b { background: var(--ink); color: #fff; border-color: var(--ink); }
+.seg input:focus-visible + b { outline: 2px solid var(--accent); }
+
+.check { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 14px; }
+.check.small { color: var(--muted); margin: 0 0 16px; }
+
+.go {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.go:active { transform: translateY(1px); }
+
+.error { color: var(--accent); font-size: 14px; }
+
+/* 사주 원국 */
+.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; }
+.pillar .label { font-size: 12px; color: var(--muted); }
+.pillar .ss { font-size: 12px; color: var(--muted); min-height: 18px; }
+.char {
+  border-radius: 10px;
+  padding: 6px 0;
+  margin: 4px 0;
+  color: #fff;
+}
+.char .h { display: block; font-size: 28px; font-weight: 700; line-height: 1.2; }
+.char .k { display: block; font-size: 12px; opacity: .9; }
+.char.empty { background: #eee6db; color: var(--muted); }
+.pillar.me .char:first-of-type { box-shadow: 0 0 0 3px var(--ink); }
+.pillar .hide { font-size: 11px; color: var(--muted); }
+
+.wood { background: var(--wood); }
+.fire { background: var(--fire); }
+.earth { background: var(--earth); }
+.metal { background: var(--metal); }
+.water { background: var(--water); }
+
+/* 오행 분포 */
+.bars { display: grid; gap: 8px; }
+.bar { display: grid; grid-template-columns: 44px 1fr 28px; align-items: center; gap: 8px; font-size: 14px; }
+.bar .track { height: 14px; background: #eee6db; border-radius: 7px; overflow: hidden; }
+.bar .fill { height: 100%; border-radius: 7px; }
+
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #fff;
+  margin-right: 4px;
+}
+
+/* 대운 */
+.daeun { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+.du {
+  flex: 0 0 auto;
+  min-width: 56px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px 4px;
+  font-size: 12px;
+}
+.du.now { border-color: var(--accent); background: #fbeeea; }
+.du .gz { font-size: 18px; font-weight: 700; display: block; }
+
+.muted { color: var(--muted); font-size: 13px; }
+.again { background: var(--ink); }
+
+.foot { text-align: center; color: var(--muted); font-size: 12px; padding: 8px 16px 32px; }
